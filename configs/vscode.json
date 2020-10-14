@@ -74,5 +74,6 @@
     "source.fixAll.eslint": true
   },
   "editor.fontSize": 14,
-  "editor.fontFamily": "\"SFMono Nerd Font\""
+  "editor.fontFamily": "\"SFMono Nerd Font\"",
+  "workbench.colorTheme": "One Monokai"
 }
