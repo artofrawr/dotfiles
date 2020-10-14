@@ -8,43 +8,43 @@ source $SCRIPTPATH/utils.sh
 # -------------------------
 # HOMEBREW 
 # -------------------------
-# print_in_purple "HOMEBREW \n"
+print_in_purple "HOMEBREW \n"
 
-# if ! cmd_exists "brew"; then
-#     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-# fi
-# brew update
-# brew upgrade
-# print_success "homebrew installed \n"
+if ! cmd_exists "brew"; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
+brew update
+brew upgrade
+print_success "homebrew installed \n"
 
-# while read p; do
-#   brew install $p
-# done <$SCRIPTPATH/apps/brew.txt
-# print_success "homebrew packages installed \n"
+while read p; do
+  brew install $p
+done <$SCRIPTPATH/apps/brew.txt
+print_success "homebrew packages installed \n"
 
-# while read p; do
-#   brew cask install $p
-# done <$SCRIPTPATH/apps/casks.txt
-# print_success "homebrew casks installed \n"
+while read p; do
+  brew cask install $p
+done <$SCRIPTPATH/apps/casks.txt
+print_success "homebrew casks installed \n"
 
 # -------------------------
 # SYMLINKS 
 # -------------------------
-# print_in_purple "S \n"
-# cd $SCRIPTPATH
+print_in_purple "SYMLINKS \n"
+cd $SCRIPTPATH
 
-# backupIfNotSymlink ~/.zshrc
-# backupIfNotSymlink ~/.gitconfig
-# backupIfNotSymlink ~/.zsh
-# backupIfNotSymlink ~/Library/Application\ Support/Code/User/settings.json
+backupIfNotSymlink ~/.zshrc
+backupIfNotSymlink ~/.gitconfig
+backupIfNotSymlink ~/.zsh
+backupIfNotSymlink ~/Library/Application\ Support/Code/User/settings.json
 
-# git clone https://github.com/seebi/dircolors-solarized ~/.dircolors-solarized
-# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/seebi/dircolors-solarized ~/.dircolors-solarized
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# ln -v -s ~/.dircolors-solarized/dircolors.ansi-dark ~/.dircolors
-# ln -v -s $SCRIPTPATH/configs/zshrc ~/.zshrc
-# ln -v -s $SCRIPTPATH/configs/vscode.json ~/Library/Application\ Support/Code/User/settings.json
-# cp -v $SCRIPTPATH/configs/gitconfig ~/.gitconfig
+ln -v -s ~/.dircolors-solarized/dircolors.ansi-dark ~/.dircolors
+ln -v -s $SCRIPTPATH/configs/zshrc ~/.zshrc
+ln -v -s $SCRIPTPATH/configs/vscode.json ~/Library/Application\ Support/Code/User/settings.json
+cp -v $SCRIPTPATH/configs/gitconfig ~/.gitconfig
 
 
 # -------------------------
