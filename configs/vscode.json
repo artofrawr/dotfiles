@@ -72,5 +72,7 @@
   "explorer.confirmDelete": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "editor.fontSize": 14,
+  "editor.fontFamily": "\"SFMono Nerd Font\""
 }
