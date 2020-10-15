@@ -13,10 +13,12 @@ gnu-tar
 gnutls
 grep
 heroku
+hyperkit
 imagemagick
 kubernetes-cli
 kubernetes-helm
 libmagic
+minikube
 mysql
 node
 postgres
