@@ -23,5 +23,6 @@ mysql
 node
 postgres
 pyenv
+skaffold
 vim
 yarn
