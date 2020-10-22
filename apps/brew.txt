@@ -1,5 +1,6 @@
 bash
 certbot
+circleci
 coreutils
 ffmpeg
 findutils
