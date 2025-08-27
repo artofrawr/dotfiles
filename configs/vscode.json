@@ -1,0 +1,96 @@
+// Place your settings in this file to overwrite the default settings
+{
+  "editor.detectIndentation": true,
+  "http.proxyStrictSSL": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["k", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.easymotion": true,
+  "vim.leader": ",",
+  "files.exclude": {
+    "**/.git": true,
+    "**/*.pyc": true,
+    "**/.DS_Store": true,
+    "jspm_packages": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/__pycache__": true,
+    "node_modules": true
+  },
+  "search.exclude": {
+    "**/.git": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "node_modules": true
+  },
+  "python.formatting.provider": "yapf",
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.testing.nosetestsEnabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "jest.runAllTestsFirst": false,
+  "prettier.disableLanguages": ["scss"],
+  "python.jediEnabled": false,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyArgs": [],
+  "eslint.packageManager": "yarn",
+  "eslint.autoFixOnSave": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "breadcrumbs.enabled": true,
+  "editor.renderWhitespace": "none",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.minimap.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "explorer.confirmDelete": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.fontSize": 14,
+  "editor.fontFamily": "\"SFMono Nerd Font\"",
+  "workbench.colorTheme": "Atom One Dark",
+  "python.languageServer": "Default",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "jupyter.askForKernelRestart": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.largeFileOptimizations": false,
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "window.commandCenter": false,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "[typescript]": {}
+}

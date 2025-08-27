@@ -1,0 +1,130 @@
+#zmodload zsh/zprof
+source /etc/profile
+
+# K8s aliases
+# param alias
+kgp() {
+  kubectl get pod
+}
+kdp() {
+  kubectl delete pod $1 
+}
+k8logs() {
+  kubectl logs -f $1
+}
+k8clean() {
+  kubectl delete pod $(kubectl get pods | awk '/Evicted|ImagePullBackOff|Completed|CrashLoopBackOff|Error|OOMKilled|ContainerStatusUnknown/ {print $1}')
+}
+k8exec() {
+  kubectl exec --stdin --tty $1 -- /bin/sh   
+}
+k8context() {
+  kubectl config get-contexts -o name | grep $1 --color='never' | xargs kubectl config use-context
+}
+
+# oh-my-zsh options
+ZSH=~/.oh-my-zsh
+ZSH_THEME="agnoster"
+DISABLE_AUTO_UPDATE="true"
+DISABLE_CORRECTION="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+plugins=(
+  git
+  zsh-autosuggestions
+)
+source ~/.oh-my-zsh/oh-my-zsh.sh
+
+# Updates editor information when the keymap changes.
+function zle-keymap-select() {
+  zle reset-prompt
+  zle -R
+}
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Ensure that the prompt is redrawn when the terminal size changes.
+TRAPWINCH() {
+  zle && { zle reset-prompt; zle -R }
+}
+
+zle -N zle-keymap-select
+zle -N edit-command-line
+
+
+bindkey -v
+
+# allow v to edit the command line (standard behaviour)
+autoload -Uz edit-command-line
+bindkey -M vicmd 'v' edit-command-line
+
+# allow ctrl-p, ctrl-n for navigate history (standard behaviour)
+bindkey '^P' up-history
+bindkey '^N' down-history
+
+# allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+
+#even for zsh
+bindkey -M viins 'kj' vi-cmd-mode
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_CTYPE="utf-8"
+
+#vim is the best
+EDITOR="vim"
+
+# 10ms for key sequences
+KEYTIMEOUT=100
+
+#TODO: add git bindings
+#aliases
+alias reload-zshrc='exec zsh'
+alias grip='grep -riI'
+#simple http server
+alias http='python -m SimpleHTTPServer'
+#most common commands - useful for determining what else should be aliased to save time
+alias mosthist="cat ~/.zsh_history | sed -E -n 's/.*;([^ ]*)( ?.*)/\1/p' | sort | uniq -c | awk '\$1 > 10' | sort -n"
+alias mosthist2="cat ~/.zsh_history | sed -E -n 's/.*;([^ ]* ?[^ ]*)( ?.*)/\1/p' | sort | uniq -c | awk '\$1 > 10' | sort -n"
+#recursive git status
+alias rgs='find . -type d -name ".git" | while read dir ; do sh -c "cd $dir/../ && echo \"\nGIT STATUS IN ${dir//\.git/}\" && git status -s" ; done'
+#docker
+alias dcs='docker-compose stop'
+alias dcu='docker-compose up -d'
+alias dcr='docker-compose restart'
+alias dcl='docker-compose logs -f'
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH=/opt/homebrew/opt/ruby/bin:$PYENV_ROOT/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:/usr/local/bin/:/usr/local/lib/node_modules/node/bin:/usr/bin/:~/bin/:/usr/local/lib64/:$PATH
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+fi
+
+#mac needs overrides to use colors
+test -e ~/.dircolors && eval `dircolors -b ~/.dircolors`
+alias ls="ls --color=always" 
+alias grep="grep --color=always"
+alias egrep="egrep --color=always"
+
+#fix for sed for mac
+#we cannot export those because it screws over terminal encoding
+alias sed="LC_ALL=C sed"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# bun completions
+[ -s "/Users/jens/.bun/_bun" ] && source "/Users/jens/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
