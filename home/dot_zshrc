@@ -7,6 +7,13 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
+# remove zsh context (e.g. jens@MacBook) when on local machine
+prompt_context() {
+  if [[ -n "$SSH_CONNECTION" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
+  fi
+}
+
 # homebrew path
 export PATH="/opt/homebrew/bin:$PATH"
 
