@@ -15,6 +15,13 @@ if ! command -v brew >/dev/null 2>&1; then
   fi
 fi
 
+# Install Neovim - https://neovim.io
+if ! command -v nvim >/dev/null 2>&1; then
+  echo "INSTALLING: Neovim"
+  brew install neovim
+fi
+
+
 # Install kitty - https://sw.kovidgoyal.net/kitty
 if ! command -v kitty >/dev/null 2>&1 && [ ! -d "/Applications/kitty.app" ]; then
   echo "INSTALLING: kitty"
