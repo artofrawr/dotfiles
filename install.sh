@@ -42,7 +42,7 @@ fi
 # Install chezmoi - https://chezmoi.io
 if ! command -v chezmoi >/dev/null 2>&1; then
   echo "INSTALLING: chezmoi"
-  sh -c "$(curl -fsLS https://get.chezmoi.io)"
+  brew install chezmoi
 fi
 
 

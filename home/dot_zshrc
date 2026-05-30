@@ -7,5 +7,8 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
+# homebrew path
+export PATH="/opt/homebrew/bin:$PATH"
+
 # activate mise
 eval "$($HOME/.local/bin/mise activate zsh)"
