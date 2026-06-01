@@ -15,7 +15,7 @@ prompt_context() {
 }
 
 # homebrew path
-export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/Library/Python/3.9/bin:/usr/local/bin/:/opt/homebrew/bin:$PATH"
 
 # activate mise
 eval "$($HOME/.local/bin/mise activate zsh)"
