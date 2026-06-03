@@ -1,0 +1,44 @@
+# hyperextensible text editor
+brew "neovim"
+# dotfile manager 
+brew "chezmoi"
+# Polyglot runtime manager 
+brew "mise"
+# Cross-platform make
+brew "cmake"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU compiler collection
+brew "gcc"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Terminal multiplexer
+brew "tmux"
+# Plugin manager for tmux
+brew "tpm"
+# General-purpose lossless data-compression library
+brew "zlib"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3", link: false
+# Object-relational database system
+brew "postgresql@18"
+# Command-line interface for SQLite
+brew "sqlite"
+# Simple terminal UI for git commands
+brew "lazygit"
+# App to build and share containerized applications and microservices
+cask "docker-desktop"
+# GPU-based terminal emulator
+cask "kitty"
+# Music streaming service
+cask "spotify"
+# Multimedia player
+cask "vlc"
+# productivity tools (app launcher, shortcuts, window management, etc.)
+cask "raycast"
