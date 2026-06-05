@@ -18,4 +18,4 @@ prompt_context() {
 export PATH="$HOME/Library/Python/3.9/bin:/usr/local/bin/:/opt/homebrew/bin:$PATH"
 
 # activate mise
-eval "$($HOME/.local/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
