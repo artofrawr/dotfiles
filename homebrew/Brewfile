@@ -42,3 +42,5 @@ cask "spotify"
 cask "vlc"
 # productivity tools (app launcher, shortcuts, window management, etc.)
 cask "raycast"
+# password manager
+cask "1password"
