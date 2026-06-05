@@ -44,3 +44,5 @@ cask "vlc"
 cask "raycast"
 # password manager
 cask "1password"
+# best database GUI
+cask "tableplus"
