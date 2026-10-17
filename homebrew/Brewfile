@@ -46,3 +46,5 @@ cask "raycast"
 cask "1password"
 # best database GUI
 cask "tableplus"
+# best remote desktop
+cask "parsec"
