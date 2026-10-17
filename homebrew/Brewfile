@@ -48,3 +48,5 @@ cask "1password"
 cask "tableplus"
 # best remote desktop
 cask "parsec"
+# team communication
+cask "slack"
