@@ -32,6 +32,8 @@ install_homebrew() {
   else
     sudo --validate
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    # A fresh install isn't on PATH yet (Apple Silicon: /opt/homebrew)
+    eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null || /usr/local/bin/brew shellenv)"
   fi
 }
 

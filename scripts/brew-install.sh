@@ -8,17 +8,15 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 run_brew_bundle() {
     brewfile="$SCRIPT_DIR/../homebrew/Brewfile"
-    if [ -f $brewfile ]; then
-        # Run `brew bundle check`
-        local check_output
-        check_output=$(brew bundle check --file="$brewfile" 2>&1)
-
-        # Check if "The Brewfile's dependencies are satisfied." is contained in the output
-        if echo "$check_output" | grep -q "The Brewfile's dependencies are satisfied."; then
+    if [ -f "$brewfile" ]; then
+        # `brew bundle check` exits non-zero when anything is missing, so test it
+        # directly — capturing it in $(...) would abort the script under `set -e`
+        if brew bundle check --file="$brewfile" >/dev/null 2>&1; then
             warning "The Brewfile's dependencies are already satisfied."
         else
             info "Satisfying missing dependencies with 'brew bundle install'..."
-            brew bundle install --file="$brewfile"
+            brew bundle install --file="$brewfile" ||
+                warning "Some Brewfile entries failed to install (see output above)."
         fi
     else
         error "Brewfile not found"
