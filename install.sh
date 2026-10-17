@@ -1,14 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 set -euo pipefail
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 printf "\n"
 
-. scripts/utils.sh
-. scripts/prerequisites.sh
-. scripts/brew-install.sh
+. "$DOTFILES_DIR/scripts/utils.sh"
+. "$DOTFILES_DIR/scripts/prerequisites.sh"
+. "$DOTFILES_DIR/scripts/brew-install.sh"
 
-info "Dotfiles intallation initialized..."
+info "Dotfiles installation initialized..."
 
 read -p "Install apps? [y/n] " install_apps
 
@@ -31,16 +31,12 @@ if [[ "$install_apps" == "y" ]]; then
 
 fi
 
-
-
-
-
 # Initialize and apply dotfiles via chezmoi
 info "===================="
 info "Applying Dotfiles"
 info "===================="
 
-chezmoi init --apply --source="$SCRIPT_DIR"
+chezmoi init --apply --source="$DOTFILES_DIR"
 
 success "Dotfiles set up successfully."
 printf "\n"
