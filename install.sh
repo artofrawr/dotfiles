@@ -38,5 +38,16 @@ info "===================="
 
 chezmoi init --apply --source="$DOTFILES_DIR"
 
+# Install language runtimes declared in ~/.config/mise/config.toml
+if command -v mise >/dev/null 2>&1; then
+    info "===================="
+    info "Runtimes (mise)"
+    info "===================="
+
+    mise install || warning "mise install failed; run 'mise install' manually."
+else
+    warning "mise not found; skipping runtime install."
+fi
+
 success "Dotfiles set up successfully."
 printf "\n"
